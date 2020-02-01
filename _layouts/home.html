@@ -1,0 +1,30 @@
+---
+layout: default
+---
+
+<h1>About</h1>
+<p>This site contains all the assignments and material of the Computational Astrophysics / Data Analysis Course 2020 taught at the University of Guanajuato (DCI, León).</p>
+
+<p>This course is taught by <a src="mailto:alma.gonzalez@fisica.ugto.mx">Alma González, PhD</a>. The official repository can be found <a src="https://github.com/alxogm/DCIDA2020I">here</a>.</p>
+
+<h4>Running the contents...</h4>
+
+<p>This repo makes use of <a href="https://mybinder.org/">Mybinder</a>. To run the contents you can simply click the following button.</p>
+<a href="https://mybinder.org/v2/gh/git%20remote%20add%20origin%20https%3A%2F%2Fgithub.com%2FRodolfoFerro%2Fastrocom.git%20git%20push%20-u%20origin%20master/master" target="_blank"><img src="https://mybinder.org/badge_logo.svg" width="170px"></a>
+
+{% if site.show_excerpts %}
+  {%- assign posts = paginator.posts | default: site.posts -%}
+  {% for post in posts %}
+    {% include post.html post=post preview=true %}
+  {% endfor %}
+{% else %}
+  {% include archive.html title="Assignments" %}
+{% endif %}
+
+{% if paginator.total_pages > 1 %}
+  <footer>
+    {% if paginator.previous_page %}<a href="{{ paginator.previous_page_path | relative_url }}">« newer posts</a>{% else %}<span></span>{% endif %}
+    <span>page {{ paginator.page }} of {{ paginator.total_pages }}</span>
+    {% if paginator.next_page %}<a href="{{ paginator.next_page_path | relative_url }}">older posts »</a>{% else %}<span></span>{% endif %}
+  </footer>
+{% endif %}
